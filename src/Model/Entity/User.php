@@ -14,6 +14,7 @@ use Cake\Auth\DefaultPasswordHasher;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Article[] $articles
+ * @property \App\Model\Entity\AutoLogin[] $auto_login
  */
 class User extends Entity
 {
@@ -33,8 +34,7 @@ class User extends Entity
         'name' => true,
         'created' => true,
         'modified' => true,
-        'auto_login' => true,
-        'articles' => true
+        'articles' => true,
     ];
 
     /**
@@ -45,7 +45,7 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
-      protected function _setPassword($password) {
+     protected function _setPassword($password) {
         return (new DefaultPasswordHasher)->hash($password);
     }
 }

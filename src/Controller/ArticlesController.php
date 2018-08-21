@@ -11,7 +11,7 @@ class ArticlesController extends AppController
    {
        $action = $this->request->getParam('action');
     // add および tags アクションは、常にログインしているユーザーに許可されます。
-    if (in_array($action, ['logout','add', 'tags','edit','delete'])) {
+    if (in_array($action, ['logout','add', 'tags','edit','delete','login'])) {
         return true;
     }
 

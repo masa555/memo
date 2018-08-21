@@ -10,6 +10,8 @@
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Auto Login'), ['controller' => 'AutoLogin', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Auto Login'), ['controller' => 'AutoLogin', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">
@@ -18,8 +20,6 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('login_key') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('password') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
@@ -32,8 +32,6 @@
             <?php foreach ($users as $user): ?>
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
-                 <td><?= h($user->user_id) ?></td>
-                 <td><?= h($user->login_key) ?></td> 
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->password) ?></td>
                 <td><?= h($user->name) ?></td>

@@ -13,7 +13,13 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-    public function beforeFilter(\Cake\Event\Event $event) {
+
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|void
+     */
+  public function beforeFilter(\Cake\Event\Event $event) {
 	parent::beforeFilter($event);
 	
 	    $this->Auth->allow(['login']);
@@ -26,52 +32,102 @@ class UsersController extends AppController
    {
        $action = $this->request->getParam('action');
     // add および tags アクションは、常にログインしているユーザーに許可されます。
-    if (in_array($action, ['logout','add', 'tags','edit','delete', 'passet','unsub'])) {
+    if (in_array($action, ['logout','add', 'tags','edit','delete', 'passet','unsub','auto_login','index'])) {
         return true;
     }
    }
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
-     //ログイン
-     
+    
      public function login()
 {   
    if($this->request->is('post')){
 		$user = $this->Auth->identify();
 		//print_r($this->request);
 		if($user){
-		     
+		     if ($this->request->data('autologin') === '1') {
+                    $this->__setupAutoLogin($user); 
+		         
+		     }
 			$this->Auth->setUser($user);
 			$this->Auth->user('id');
-		    
+			$this->__setupAutoLogin($user);
 			$this->Flash->success(__('ログインしました。'));
 			return $this->redirect($this->Auth->redirectUrl('https://cakephp-masa55.c9users.io/articles'));
 		}
 		$this->Flash->error('メールアドレスを入力してください、パスワードを入力してください。');
-	  }
-	      
-    } 
- 
-  
-  //ログアウト
+	  }else {
+            if ($autoLoginKey = $this->Cookie->read('AUTO_LOGIN')) {
+                $this->loadModel('AutoLogin');
+                $query = $this->AutoLogin->findByAutoLoginKey($autoLoginKey);
+                if ($query->count() > 0) {
+                    $userId = $query->first()->user_id;
+                    $user = $this->Users->get($userId)->toArray();
+                    if ($user) {
+                        // 一度ログインキーを消してから再作成する
+                        $this->__destroyAutoLogin($user);
+                        $this->__setupAutoLogin($user);
+                        $this->Auth->setUser($user);
+                        return $this->redirect($this->Auth->redirectUrl());
+                       }
+                      }       
+	           
+	                }
+                  } 
+               } 
+ //ログアウト
     public function logout()
   {
+    $this->__destroyAutoLogin($this->Auth->user());      
    $this->Flash->success(__('ログアウトしました。'));
 	return $this->redirect($this->Auth->logout());
  }
+ private function __setupAutoLogin($user)
+    {
+        $this->loadModel('AutoLogin');
+        $autoLoginKey = sha1(uniqid() . mt_rand(1, 999999999) . '_auto_login');
+        $entity = $this->AutoLogin->newEntity([
+            'user_id' => $user['id'],
+            'auto_login_key' => $autoLoginKey
+        ]);
+        $this->AutoLogin->save($entity);
+         
+        $this->Cookie->config([
+            'expires' => '+7 days',
+            'path' => '/'
+        ]);
+        $this->Cookie->write('AUTO_LOGIN', $autoLoginKey);
+    }
+
+    private function __destroyAutoLogin($user)
+    {
+        $this->loadModel('AutoLogin');
+        try {
+            $entity = $this->AutoLogin->get($user['id']);
+            if ($entity) {
+                $this->AutoLogin->delete($entity);
+                $this->Cookie->delete('AUTO_LOGIN');
+            }
+        } catch (RecordNotFoundException $e) {
+            $this->Cookie->delete('AUTO_LOGIN');
+        }
+    }
+ 
     public function index()
     {
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
     }
-    
 
-    
- //パスワードリセット    
+    /**
+     * View method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * 
+     * 
+     */
+     //パスワードリセット    
      public function passet()
     {
         if($this->request->is('post')){
@@ -121,26 +177,19 @@ class UsersController extends AppController
                 $user = $this->Users->patchEntity($user, $this->request->getData());
                     if ($this->Users->save($user)) {
                         $this->Flash->success(__('パスワード再設定メールを送信しました。'));
-                        return $this->redirect(['action' => 'login']);
+                         return $this->redirect(['controller'=>'articles','action' => 'index']);
                     }
                     $this->Flash->error(__('再設定メールを送信出来ませんでした。'));
             
-                return $this->redirect(['action' => 'login']);
+                return $this->redirect(['controller'=>'users','action' => 'login']);
                 }
            } 
     } 
 
-    /**
-     * View method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => ['Articles']
+            'contain' => ['Articles', 'AutoLogin']
         ]);
 
         $this->set('user', $user);
@@ -151,7 +200,7 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+   public function add()
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
@@ -182,7 +231,6 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
     }
-
     /**
      * Edit method
      *
@@ -199,7 +247,6 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('変更しました。'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('変更できませんでした。'));
@@ -214,7 +261,6 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    //削除
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
@@ -225,11 +271,9 @@ class UsersController extends AppController
         } else {
             $this->Flash->error(__('削除できませんでした。'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
-    
-    //ユーザー退会
+     //ユーザー退会
      public function unsub($id= null)
     {   
          $id = $this->Auth->user('id');
@@ -254,4 +298,5 @@ class UsersController extends AppController
             $this->set(compact('user'));
             $this->set('_serialize', ['user']);
      }
+    
 }

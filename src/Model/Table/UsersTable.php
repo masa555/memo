@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Users Model
  *
  * @property \App\Model\Table\ArticlesTable|\Cake\ORM\Association\HasMany $Articles
+ * @property \App\Model\Table\AutoLoginTable|\Cake\ORM\Association\HasMany $AutoLogin
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -38,11 +39,10 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
         $this->addBehavior('Timestamp');
+
         $this->hasMany('Articles', [
-            'foreignKey' => 'user_id'
-        ]);
-        $this->hasMany('AutoLogin', [
             'foreignKey' => 'user_id'
         ]);
     }
@@ -58,6 +58,7 @@ class UsersTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
@@ -68,7 +69,7 @@ class UsersTable extends Table
             ->maxLength('password', 255,'255文字以上で入力してください。')
             ->requirePresence('password', 'create')
             ->notEmpty('password','パスワードは省略できません。')
-            ->allowEmpty('passowrd','updete')
+             ->allowEmpty('passowrd','updete')
             ->add('passowrd',[//バリデーション対象カラム
                   'comWith'=>[//任意のばりでージョン名
                    'rule'=>['compareWith','password_check'],
@@ -77,11 +78,12 @@ class UsersTable extends Table
                    
                 ]);
               return $validator;
-              
+
         $validator
             ->scalar('name')
-            ->maxLength('name',[2,15],'ユーザー名は2文字以上、15文字以内で入力してください。')
-            ->allowEmpty('name');
+            ->maxLength('name', 100)
+            ->requirePresence('name', 'create')
+            ->notEmpty('name',[2,15],'ユーザー名は2文字以上、15文字以内で入力してください。');
 
         return $validator;
     }
