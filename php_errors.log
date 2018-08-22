@@ -11543,3 +11543,157 @@ Stack trace:
 [21-Aug-2018 06:03:09 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
 [21-Aug-2018 06:03:09 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
 [21-Aug-2018 06:03:09 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:29:50 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:29:50 UTC] PHP Stack trace:
+[22-Aug-2018 16:29:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:29:50 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:29:50 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:29:50 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:29:50 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:29:50 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:29:50 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:29:50 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:29:50 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:29:53 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:29:53 UTC] PHP Stack trace:
+[22-Aug-2018 16:29:53 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:29:53 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:29:53 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:29:53 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:29:53 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:29:53 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:29:53 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:29:53 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:29:53 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:30:23 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:30:23 UTC] PHP Stack trace:
+[22-Aug-2018 16:30:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:30:23 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:30:23 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:30:23 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:30:23 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:30:23 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:30:23 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:30:23 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:30:23 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:30:23 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:30:23 UTC] PHP Stack trace:
+[22-Aug-2018 16:30:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:30:23 UTC] PHP   2. Cake\Http\Server->run() /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:30:23 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:30:23 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:30:23 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:30:23 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:30:23 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:30:23 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:30:23 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:31:40 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:31:40 UTC] PHP Stack trace:
+[22-Aug-2018 16:31:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:31:40 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:31:40 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:31:40 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:31:40 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:31:40 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:31:40 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:31:40 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:31:40 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:31:41 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:31:41 UTC] PHP Stack trace:
+[22-Aug-2018 16:31:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:31:41 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:31:41 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:31:41 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:31:41 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:31:41 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:31:41 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:31:41 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:31:41 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:31:42 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:31:42 UTC] PHP Stack trace:
+[22-Aug-2018 16:31:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:31:42 UTC] PHP   2. Cake\Http\Server->run() /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:31:42 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:31:42 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:31:42 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:31:42 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:31:42 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:31:42 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:31:42 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:32:00 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:32:00 UTC] PHP Stack trace:
+[22-Aug-2018 16:32:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:32:00 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:32:00 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:32:00 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:32:00 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:32:00 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:32:00 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:32:00 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:32:00 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:32:01 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:32:01 UTC] PHP Stack trace:
+[22-Aug-2018 16:32:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:32:01 UTC] PHP   2. Cake\Http\Server->run() /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:32:01 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:32:01 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:32:01 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:32:01 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:32:01 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:32:01 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:32:01 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:32:34 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:32:34 UTC] PHP Stack trace:
+[22-Aug-2018 16:32:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:32:34 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:32:34 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:32:34 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:32:34 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:32:34 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:32:34 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:32:34 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:32:34 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:32:35 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:32:35 UTC] PHP Stack trace:
+[22-Aug-2018 16:32:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:32:35 UTC] PHP   2. Cake\Http\Server->run() /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:32:35 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:32:35 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:32:35 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:32:35 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:32:35 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:32:35 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:32:35 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:33:09 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:33:09 UTC] PHP Stack trace:
+[22-Aug-2018 16:33:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:33:09 UTC] PHP   2. Cake\Http\Server->run($request = *uninitialized*, $response = *uninitialized*) /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:33:09 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:33:09 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:33:09 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:33:09 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:33:09 UTC] PHP   7. Cake\Core\Configure::load($key = *uninitialized*, $config = *uninitialized*, $merge = *uninitialized*) /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:33:09 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read($key = *uninitialized*) /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:33:09 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:33:11 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:33:11 UTC] PHP Stack trace:
+[22-Aug-2018 16:33:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:33:11 UTC] PHP   2. Cake\Http\Server->run() /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:33:11 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:33:11 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:33:11 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:33:11 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:33:11 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:33:11 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:33:11 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88
+[22-Aug-2018 16:33:11 UTC] PHP Warning:  A non-numeric value encountered in /home/ubuntu/workspace/config/app.php on line 195
+[22-Aug-2018 16:33:11 UTC] PHP Stack trace:
+[22-Aug-2018 16:33:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/webroot/index.php:0
+[22-Aug-2018 16:33:11 UTC] PHP   2. Cake\Http\Server->run() /home/ubuntu/workspace/webroot/index.php:40
+[22-Aug-2018 16:33:11 UTC] PHP   3. Cake\Http\Server->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:82
+[22-Aug-2018 16:33:11 UTC] PHP   4. App\Application->bootstrap() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/Server.php:121
+[22-Aug-2018 16:33:11 UTC] PHP   5. App\Application->bootstrap() /home/ubuntu/workspace/src/Application.php:43
+[22-Aug-2018 16:33:11 UTC] PHP   6. require_once() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Http/BaseApplication.php:152
+[22-Aug-2018 16:33:11 UTC] PHP   7. Cake\Core\Configure::load() /home/ubuntu/workspace/config/bootstrap.php:70
+[22-Aug-2018 16:33:11 UTC] PHP   8. Cake\Core\Configure\Engine\PhpConfig->read() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure.php:324
+[22-Aug-2018 16:33:11 UTC] PHP   9. include() /home/ubuntu/workspace/vendor/cakephp/cakephp/src/Core/Configure/Engine/PhpConfig.php:88

@@ -54,29 +54,12 @@ class UsersController extends AppController
 			return $this->redirect($this->Auth->redirectUrl('https://cakephp-masa55.c9users.io/articles'));
 		}
 		$this->Flash->error('メールアドレスを入力してください、パスワードを入力してください。');
-	  }else {
-            if ($autoLoginKey = $this->Cookie->read('AUTO_LOGIN')) {
-                $this->loadModel('AutoLogin');
-                $query = $this->AutoLogin->findByAutoLoginKey($autoLoginKey);
-                if ($query->count() > 0) {
-                    $userId = $query->first()->user_id;
-                    $user = $this->Users->get($userId)->toArray();
-                    if ($user) {
-                        // 一度ログインキーを消してから再作成する
-                        $this->__destroyAutoLogin($user);
-                        $this->__setupAutoLogin($user);
-                        $this->Auth->setUser($user);
-                        return $this->redirect($this->Auth->redirectUrl());
-                       }
-                      }       
-	           
-	                }
-                  } 
-               } 
+      } 
+}
  //ログアウト
     public function logout()
   {
-    $this->__destroyAutoLogin($this->Auth->user());      
+   $this->__destroyAutoLogin($this->Auth->user());      
    $this->Flash->success(__('ログアウトしました。'));
 	return $this->redirect($this->Auth->logout());
  }
@@ -261,18 +244,6 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('削除しました。'));
-        } else {
-            $this->Flash->error(__('削除できませんでした。'));
-        }
-        return $this->redirect(['action' => 'index']);
-    }
      //ユーザー退会
      public function unsub($id= null)
     {   
@@ -288,7 +259,8 @@ class UsersController extends AppController
             $article = $this->Users->patchEntity($user, $this->request->getData());
              $user = $this->Users->get($id);
             if ($this->Users->delete($user)) {
-            $this->request->session()->destroy();    
+            $this->request->session()->destroy(); 
+             $this->__destroyAutoLogin($this->Auth->user());    
             $this->Flash->success(__('退会しました。ご利用ありがとうございました。'));
              return $this->redirect(['controller'=>'users','action' => 'login']);
          } else {
