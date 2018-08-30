@@ -260,7 +260,7 @@ class UsersController extends AppController
              $user = $this->Users->get($id);
             if ($this->Users->delete($user)) {
             $this->request->session()->destroy(); 
-             $this->__destroyAutoLogin($this->Auth->user());    
+            $this->__destroyAutoLogin($this->Auth->user());    
             $this->Flash->success(__('退会しました。ご利用ありがとうございました。'));
              return $this->redirect(['controller'=>'users','action' => 'login']);
          } else {
