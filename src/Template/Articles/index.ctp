@@ -1,6 +1,6 @@
 
-  
 <?= $this->Html->link('新規作成', ['action' => 'add']) ?>
+
 <table>
     <tr>
         <th>タイトル</th>

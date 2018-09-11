@@ -1,20 +1,3 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,48 +8,58 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
-
+    
+    <?= $this->Html->css('bootstrap/bootstrap.css') ?>
+    
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-  <!-- ページナビの生成 -->
-<nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1> <li><?= $this->Html->link(__('オンラインmemo'), ['controller' => 'articles', 'action' => 'index']) ?></li> </h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><?= $this->Html->link(__('使い方'), ['controller' => 'tops', 'action' => 'index']) ?></li>  
+    
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			    <h3><?= $this->Html->link(__('シンプルメモ'), ['controller' => 'articles', 'action' => 'index']) ?></h3>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><?= $this->Html->link(__('使い方'), ['controller' => 'tops', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('新規ユーザー登録（無料）'), ['controller' => 'users', 'action' => 'add']) ?></li>
-                 <li><?= $this->Html->link(__('パスワード変更'), ['controller' => 'users', 'action' => 'passet']) ?></li>
-                 <!--退会-->
-                	<li><?php if($this->request->getsession()->read('Auth.User.id')):
-             	?> 
-             		<a href="/users/unsub">ユーザー退会</a></li>
-          　<?php endif;?>
-          　<!--ログアウト-->
-              	<li><?php if($this->request->getsession()->read('Auth.User.id')):
-             	?>
-			<a href="/users/logout">ログアウト</a></li>
-          　<?php endif;?>
-          
-            </ul>
-        </div>
+                  <!--退会-->
+                <?php if($this->request->getsession()->read('Auth.User.id')):?> 
+             		 <li><a href="/users/unsub">ユーザー退会</a></li>
+                  　<?php endif;?>
+                  　
+                <!--ログアウト-->
+              	<?php if($this->request->getsession()->read('Auth.User.id')):?>
+			    <li><a href="/users/logout">ログアウト</a></li>
+          　 <?php endif;?>  　
+			</ul>
+		</div>
+	</div>
 </nav>
 
 <div class="users form large-12 medium-12 columns content">
     <?= $this->Flash->render() ?>
+    
+    
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
     <footer>
+         <div class="container-fluid text-center">
+             <small>シンプルメモ@2018</small>
+        </div>
     </footer>
 </body>
 </html>
+
