@@ -1,5 +1,10 @@
-<div class="users view large-12 medium-12 columns content">
-<h1><?= h($article->title) ?></h1>
-<hr size="50">
-<p><?= h($article->body) ?></p>
-<p><small>作成日時: <?= $article->created->format(DATE_RFC850) ?></small></p>
+
+<h3>タイトル</h3>
+<div class="container">
+ <div class="title">   
+<h2><?= h($article->title) ?></h2>
+<hr size="100">
+<h3>本文</h3>
+<h4><?= h($article->body) ?></h4>
+</div>
+</div>

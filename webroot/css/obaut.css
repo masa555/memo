@@ -1,0 +1,17 @@
+@charset 'utf-8';
+
+.container-fluid{
+    /*コンテイナー*/
+    background-image: url("/webroot/img/メモ２.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    height: 100vh;
+}
+@media only screen and (max-width: 767px) {
+  .container-fluid{
+    background-image: url("/webroot/img/メモ２.jpg");
+  }
+}

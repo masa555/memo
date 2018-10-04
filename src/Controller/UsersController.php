@@ -27,6 +27,10 @@ class UsersController extends AppController
         $this->Auth->allow(['add']);
         $this->Auth->allow(['index']);
         $this->Auth->allow(['view']);
+        $this->Auth->allow(['Passet']);
+        
+        //記事情報も削除するために追加した
+        $this->loadModel('Articles');
   }
      public function isAuthorized($user)
    {
@@ -53,7 +57,7 @@ class UsersController extends AppController
 			$this->Flash->success(__('ログインしました。'));
 			return $this->redirect($this->Auth->redirectUrl('https://cakephp-masa55.c9users.io/articles'));
 		}
-		$this->Flash->error('メールアドレスを入力してください、パスワードを入力してください。');
+		$this->Flash->error('メールアドレス、パスワードが不正です。');
       } 
 }
  //ログアウト
@@ -160,11 +164,11 @@ class UsersController extends AppController
                 $user = $this->Users->patchEntity($user, $this->request->getData());
                     if ($this->Users->save($user)) {
                         $this->Flash->success(__('パスワード再設定メールを送信しました。'));
-                         return $this->redirect(['controller'=>'articles','action' => 'index']);
+                         return $this->redirect(['controller'=>'users','action' => 'login']);
                     }
                     $this->Flash->error(__('再設定メールを送信出来ませんでした。'));
             
-                return $this->redirect(['controller'=>'users','action' => 'login']);
+                return $this->redirect(['controller'=>'users','action' => 'passet']);
                 }
            } 
     } 
@@ -190,6 +194,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $post_password = $this->request->getData('password');
             $post_password_check = $this->request->getData('password_check');
+            
             
             if($post_password ===  $post_password_check ){
               if ($this->Users->save($user)) {
@@ -258,14 +263,20 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $article = $this->Users->patchEntity($user, $this->request->getData());
              $user = $this->Users->get($id);
-            if ($this->Users->delete($user)) {
-            $this->request->session()->destroy(); 
-            $this->__destroyAutoLogin($this->Auth->user());    
-            $this->Flash->success(__('退会しました。ご利用ありがとうございました。'));
-             return $this->redirect(['controller'=>'users','action' => 'login']);
-         } else {
+        
+            //ユーザーの記事情報削除
+            $this->Articles->deleteAll(['user_id' => $user->id]);
+            //ユーザー情報削除
+          if ($this->Users->delete($user)) {
+              
+              $this->request->session()->destroy(); 
+              $this->__destroyAutoLogin($this->Auth->user());    
+              $this->Flash->success(__('退会しました。ご利用ありがとうございました。'));
+              
+              return $this->redirect(['controller'=>'users','action' => 'login']);
+          } else {
             $this->Flash->error(__('退会できませんでした。'));
-         }
+          }
         }
             $this->set(compact('user'));
             $this->set('_serialize', ['user']);

@@ -39,7 +39,10 @@ class ArticlesController extends AppController
     public function index()
     {
         $this->loadComponent('Paginator');
-        $articles = $this->Paginator->paginate($this->Articles->find());
+        
+        // echo $this->Auth->user('id');
+        // $articles = $this->Paginator->paginate($this->Articles->find());
+        $articles = $this->Paginator->paginate($this->Articles->findByUserId($this->Auth->user('id')));
         $this->set(compact('articles'));
         
     }

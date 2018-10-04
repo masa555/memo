@@ -26,7 +26,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
-
+   
     /**
      * Initialization hook method.
      *
@@ -47,7 +47,7 @@ class AppController extends Controller
         $this->loadComponent('Cookie');
         $this->loadComponent('Auth', [
             'authorize' => 'Controller',
-            'authError' => '不正なログインです。',
+             'authError' => '不正なログインです。',
             'authenticate' => [
                 'Form' => [
                     'fields' => [
