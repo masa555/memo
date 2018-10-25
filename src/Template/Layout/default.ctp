@@ -37,11 +37,10 @@ $cakeDescription = 'シンプルメモ'
 		
 		<div class="collapse navbar-collapse" id="navbarEexample1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><?= $this->Html->link(__('使い方'), ['controller' => 'obaut', 'action' => 'index']) ?></li>
+				<li><?= $this->Html->link(__('使い方'), ['controller' => 'about', 'action' => 'index']) ?></li>
 				<!--fontawesame アイコン-->
                 <li class="fasx"><i class="fas fa-user-circle fa-lg icon"></i>
                  <?= $this->Html->link(__('新規ユーザー登録(無料)'), ['controller' => 'users', 'action' => 'add'])?></li>
-               
                 <!--ログアウト-->
               	<?php if($this->request->getsession()->read('Auth.User.id')):?>
 			    <li class="fasx2"><i class="fas fa-sign-out-alt fa-lg icon2"></i><a href="/users/logout">ログアウト</a></li>
@@ -57,7 +56,7 @@ $cakeDescription = 'シンプルメモ'
 </nav>
     <?= $this->Flash->render() ?>
     <div class="container">
-        <?= $this->fetch('content') ?>
+     <?= $this->fetch('content') ?>
     </div>
     </div>
     <footer class="footer">

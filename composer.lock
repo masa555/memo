@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "54b51ec27391c37c8841011a53dfd5a1",
+    "content-hash": "bc07345b4e719e884580f68dbf44c67a",
     "packages": [
         {
             "name": "aura/intl",
@@ -339,6 +339,56 @@
                 "twitter"
             ],
             "time": "2018-04-16T21:52:50+00:00"
+        },
+        {
+            "name": "ivanamat/cakephp3-markdown",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanamat/cakephp3-markdown.git",
+                "reference": "2a057dae22e9e6173ba77ad2b118ca95b0459f5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivanamat/cakephp3-markdown/zipball/2a057dae22e9e6173ba77ad2b118ca95b0459f5b",
+                "reference": "2a057dae22e9e6173ba77ad2b118ca95b0459f5b",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "php": ">=5.4.16"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Markdown\\": "src"
+                },
+                "classmap": [
+                    "Lib/Parsedown"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Amat",
+                    "homepage": "http://www.ivanamat.es",
+                    "role": "Author"
+                }
+            ],
+            "description": "CakePHP 3.x - Markdown",
+            "homepage": "https://github.com/ivanamat/cakephp3-markdown",
+            "keywords": [
+                "cake3",
+                "cakephp",
+                "cakephp3",
+                "markdown",
+                "parsedown",
+                "plugin"
+            ],
+            "time": "2018-02-18T15:18:32+00:00"
         },
         {
             "name": "josegonzalez/dotenv",

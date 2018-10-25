@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Controller\AppController;
 class ArticlesController extends AppController
 {
-    
-    
      public function isAuthorized($user)
    {
        $action = $this->request->getParam('action');
@@ -31,20 +29,17 @@ class ArticlesController extends AppController
      public function initialize()
     {
         parent::initialize();
-
+    
         $this->loadComponent('Paginator');
         $this->loadComponent('Flash'); // FlashComponent をインクルード
         $this->Auth->allow(['tags']);
+        $this->loadComponent('Markdown.Markdown');
     }
     public function index()
     {
         $this->loadComponent('Paginator');
-        
-        // echo $this->Auth->user('id');
-        // $articles = $this->Paginator->paginate($this->Articles->find());
         $articles = $this->Paginator->paginate($this->Articles->findByUserId($this->Auth->user('id')));
         $this->set(compact('articles'));
-        
     }
     public function view($slug = null)
   {
@@ -52,15 +47,15 @@ class ArticlesController extends AppController
     $this->set(compact('article'));
   }
   public function add()
-    {
-        $article = $this->Articles->newEntity();
+  { 
+       $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
-
             // user_id の決め打ちは一時的なもので、あとで認証を構築する際に削除されます。
             $article->user_id = $this->Auth->user('id');
-
-            if ($this->Articles->save($article)) {
+            $md = file_get_contents('../README.md', true);
+            $html = $this->Markdown->parse($md);
+            if ($this->Articles->save($article,$html)) {
                 $this->Flash->success(__('保存しました。'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -73,7 +68,7 @@ class ArticlesController extends AppController
         $this->set('tags', $tags);
 
         $this->set('article', $article);
-        
+        $this->set(compact('html'));
     }
     
     public function edit($slug)

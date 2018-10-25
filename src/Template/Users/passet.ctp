@@ -2,6 +2,9 @@
     //ページタイトル変更
     $this->assign('title', 'パスワード変更 - オンラインwebメモ帳');
 ?>
+<br>
+<br>
+<br>
 <div class="container">
      <div class="row">
              <div class="col-xs-3.col-xs-offset-2">

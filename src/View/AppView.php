@@ -26,6 +26,6 @@ class AppView extends UIView
     {
             parent::initialize();
             $this->layout = 'default';
-
+            $this->loadHelper('Markdown.Markdown');
     }
 }

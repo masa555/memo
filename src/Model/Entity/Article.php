@@ -8,8 +8,8 @@ class Article extends Entity
 {
     protected $_accessible = [
         '*' => true,
-        'id' => false,
-        'slug' => false,
+        'id' => true,
+        'slug' => true,
     ];
     protected function _getTagString()
 {

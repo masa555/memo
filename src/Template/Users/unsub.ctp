@@ -1,4 +1,6 @@
    <h3>ユーザー退会についての注意事項</h3>
+   <br>
+   <br>
    <div class="container">
          <div class="row">
           <div class="col-xs-3.col-xs-offset-2">
@@ -14,16 +16,18 @@
 	),
 	'class' => 'well form-horizontal'
     )); ?>      
-    <p><strong>登録されたユーザー情報は全て削除致します。</strong></hp>
+    <p><strong>登録されたユーザー情報は全て削除致します。</strong></p>
     <br>
     <?= $this->Form->create() ?>
         <p>本当に退会しますか？</p>
         <br>
-        <div class="form-group">
-        <?= $this->Form->button('退会する',
+        <br>
+         <div class="form-group">
+        <?= $this->Form->button('退会',
         array('div'=>'btn-group ',
        'class'=>'button ',
-        )); ?>    
+        )); ?> 
+    </div>
         <p><?= $this->Html->link(__('キャンセル'),['controller'=>'articles','action'=>'index']) ?></p>
     <?= $this->Form->end() ?>
        </div>
