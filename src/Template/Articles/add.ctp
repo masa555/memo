@@ -1,14 +1,15 @@
-<div class="container">
+    <br>
+    <p>※マークダウン形式に対応しています。</p> 
     <?= $this->Form->create($article);?>
-    <?= $this->Form->control('user_id',array('type'=>'hidden','value'=>1,
+    <?= $this->Form->control('user_id',array('type'=>'hidden',
         'class'=>'input-lg','label'=>'ユーザー名'
         ));?>
     <?= $this->Form->control('title',array('label'=>'タイトル',
-        'class'=>'input-lg','label'=>'タイトル'
+        'class'=>'input-lg','label'=>'タイトル',
         ));?>
    
       <?= $this->Form->control('body',array('label'=>'本文',
-        'class'=>'input-lg','label'=>'本文'
+        'class'=>'input-lg','label'=>'本文',
         ));?>
     <div class="form-group">
         <?= $this->Form->button('作成',
@@ -17,4 +18,3 @@
         )); ?> 
     </div>
     <?= $this->Form->end();?>
-    </div>

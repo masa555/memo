@@ -1,3 +1,4 @@
+<br>
 
 <h1>シンプルなメモ帳とても簡単にできます！</h1>
 <div class="container">
@@ -23,8 +24,8 @@
         <?= $this->Form->control('password',array('placeholder'=>'パスワード',
         'class'=>'input-lg','label'=>'パスワード'
         )); ?>
-        <?= $this->Form->control('ログイン情報を保存', array('type' => 'checkbox'
-        )); ?>
+         <?= $this->Form->control('autologin', array('type' => 'checkbox','label'=>'ログイン情報を保存'
+        ));?>
         <!--ログイン-->
         <div class="form-group">
         <?= $this->Form->button('ログイン',

@@ -16,20 +16,6 @@
     <!--ユーザー画面-->
     <?= $this->Form->create($user) ?>
         <?php
-            /*echo $this->Form->control('メールアドレス',array('placeholder' => 'メールアドレス（認証用ID）',
-            'class'=>'input-lg'
-            ));
-            echo $this->Form->control('パスワード',array('placeholder' => 'パスワード',
-            'class'=>'input-lg'
-            ));
-            echo$this->Form->label('password_check','パスワード（確認)');
-            echo $this->Form->password('password_check',array('placeholder'=>'パスワード確認',
-             'class'=>'input-lg'
-            ));
-            echo $this->Form->control('ユーザー名',array('placeholder' => 'ユーザー名（表示用）',
-              'class'=>'input-lg'
-            ));*/
-            
             echo $this->Form->control('email',array('placeholder' => 'メールアドレス（認証用ID）',
             'class'=>'input-lg','label'=>'メールアドレス'
             ));

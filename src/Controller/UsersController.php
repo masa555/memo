@@ -4,6 +4,9 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Mailer\Email;
 use Cake\Event\Event;
+
+use Cake\Datasource\Exception\RecordNotFoundException;
+
 /**
  * Users Controller
  *
@@ -45,15 +48,12 @@ class UsersController extends AppController
 {   
    if($this->request->is('post')){
 		$user = $this->Auth->identify();
-		//print_r($this->request);
 		if($user){
 		     if ($this->request->data('autologin') === '1') {
                     $this->__setupAutoLogin($user); 
-		         
 		     }
 			$this->Auth->setUser($user);
 			$this->Auth->user('id');
-			$this->__setupAutoLogin($user);
 			$this->Flash->success(__('ログインしました。'));
 			return $this->redirect($this->Auth->redirectUrl('https://cakephp-masa55.c9users.io/articles'));
 		}
@@ -78,7 +78,7 @@ class UsersController extends AppController
         $this->AutoLogin->save($entity);
          
         $this->Cookie->config([
-            'expires' => '+7 days',
+            'expires' => '+7days',
             'path' => '/'
         ]);
         $this->Cookie->write('AUTO_LOGIN', $autoLoginKey);
@@ -89,6 +89,7 @@ class UsersController extends AppController
         $this->loadModel('AutoLogin');
         try {
             $entity = $this->AutoLogin->get($user['id']);
+            
             if ($entity) {
                 $this->AutoLogin->delete($entity);
                 $this->Cookie->delete('AUTO_LOGIN');

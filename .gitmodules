@@ -1,0 +1,3 @@
+[submodule "plugins/Markdown"]
+	path = plugins/Markdown
+	url = git@github.com:ivanamat/cakephp3-markdown.git
