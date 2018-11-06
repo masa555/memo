@@ -20,6 +20,8 @@ $cakeDescription = 'シンプルメモ'
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
     
+    
+    
 </head>
 <body>
     <div class="content">
@@ -47,7 +49,7 @@ $cakeDescription = 'シンプルメモ'
           　 <?php endif;?> 
             　<!--退会-->
                 <?php if($this->request->getsession()->read('Auth.User.id')):?> 
-             		 <li class="fasx3"><i class="fas fa-door-open fa-lg icon3"></i><a href="/users/unsub">ユーザー退会</a></li>
+            		 <li class="fasx3"><i class="fas fa-door-open fa-lg icon3"></i><a href="/users/unsub">ユーザー退会</a></li>
              		 <!--ここまで-->
                   　<?php endif;?>
 			</ul>

@@ -1,5 +1,5 @@
-    <br>
     <p>※マークダウン形式に対応しています。</p> 
+    <?php echo $this->Markdown->parse($md); ?>
     <?= $this->Form->create($article);?>
     <?= $this->Form->control('user_id',array('type'=>'hidden',
         'class'=>'input-lg','label'=>'ユーザー名'

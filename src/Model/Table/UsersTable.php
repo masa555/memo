@@ -100,5 +100,5 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['email'],'既に使われているメールアドレスです。'));
         $rules->add($rules->isUnique(['name'],'既に使われているユーザーです。'));
         return $rules;
-    }
+   }
 }

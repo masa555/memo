@@ -1,6 +1,6 @@
 
 <?php
-$cakeDescription = 'シンプルメモ2'
+$cakeDescription = 'シンプルメモ'
 ?>
 <!DOCTYPE html>
 <html>
