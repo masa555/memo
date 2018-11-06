@@ -19,13 +19,17 @@ $cakeDescription = 'シンプルメモ'
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <!-- jquery -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>    
     
-    
+    <!-- bootstrap framework -->
+     <?= $this->Html->script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'); ?>
     
 </head>
 <body>
     <div class="content">
-<nav class="navbar navbar-default ">
+<nav class="navbar navbar-default  navbar-fixed-top">
 	<div class="container">
 		 <div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
