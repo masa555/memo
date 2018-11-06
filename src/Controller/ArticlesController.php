@@ -44,18 +44,25 @@ class ArticlesController extends AppController
     public function view($slug = null)
   {
     $article = $this->Articles->findBySlug($slug)->firstOrFail();
+    $md = file_get_contents('../view.ctp', true);
+    $html = $this->Markdown->parse($md);
     $this->set(compact('article'));
+    $this->set(compact('html'));
+    
+    $md= h($article->title);
+    $md2 = h($article->body);
+    $this->set(compact('md'));
+    $this->set(compact('md2'));
+    
   }
   public function add()
-  { 
-       $article = $this->Articles->newEntity();
+  {  
+      $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
             // user_id の決め打ちは一時的なもので、あとで認証を構築する際に削除されます。
             $article->user_id = $this->Auth->user('id');
-            $md = file_get_contents('../README.md', true);
-            $html = $this->Markdown->parse($md);
-            if ($this->Articles->save($article,$html)) {
+            if ($this->Articles->save($article)) {
                 $this->Flash->success(__('保存しました。'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -68,7 +75,6 @@ class ArticlesController extends AppController
         $this->set('tags', $tags);
 
         $this->set('article', $article);
-        $this->set(compact('html'));
     }
     
     public function edit($slug)
