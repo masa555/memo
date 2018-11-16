@@ -9,16 +9,15 @@ body{
 }
 /*見出し*/
 h1 {
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
     text-transform: uppercase;
-    text-align: center;
-    color: #666;
+    color: #000000;
     margin: 0 0 30px 0;
     letter-spacing: 4px;
-    font: normal 26px/1 Verdana, Helvetica;
     position: relative;
 }
-
+.top a{
+    text-decoration: none;
+}
 .content-inside {
   padding: 20px;
   padding-bottom: 50px;
@@ -55,9 +54,10 @@ h1 {
     font-size:15px; 
 
 }
-.font h2{
-    color:#4973FF;
-    font-weight: 2px;
+.font h3{
+    color:#fdbb2d;
+    font-weight: 5px;
+    text-shadow: 1px 1px 0 #000
 }
 /*フォントリストスタイル取り消し*/
 .font li{
@@ -74,27 +74,30 @@ h1 {
 }
 /*アイコンの高さ設定*/
 .icon{
-     padding-top:18px;
-    padding-bottom:15px;
+    padding-top:0.6em;
+    padding-bottom:5px;
     float:left;
+    font-size:23px;
  
 }
 .fasx2{
      margin-left:4px;
 }
 .icon2{
-    padding-top:18px;
-    padding-bottom:15px;
+    padding-top:0.6em;
+    padding-bottom:5px;
     float:left;
+    font-size:23px;
 }
 
 .fasx3{
     margin-left:4px;
 }
 .icon3{
-    padding-top:18px;
-    padding-bottom:15px;
+    padding-top:0.6em;
+    padding-bottom:5px;
     float:left;
+    font-size:20px;
 }
 
 .title{
@@ -103,4 +106,14 @@ h1 {
 .seticon{
     float:left;
     padding-right:30px;
+}
+.helper{
+    font-size:13px;
+}
+.passet{
+    margin:120px 0 0 0;
+}
+
+.font{
+    margin:0 120px 0 0;
 }

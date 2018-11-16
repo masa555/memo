@@ -20,6 +20,11 @@ $cakeDescription = 'シンプルメモ'
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+     <!-- jquery -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- bootstrap framework -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
 </head>
 <body>
@@ -32,7 +37,7 @@ $cakeDescription = 'シンプルメモ'
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			    <h3><?= $this->Html->link(__('シンプルメモ'), ['controller' => 'articles', 'action' => 'index']) ?></h3>
+			    <h3 class="top"><?= $this->Html->link(__('シンプルメモ'), ['controller' => 'articles', 'action' => 'index']) ?></h3>
 		</div>
 		
 		<div class="collapse navbar-collapse" id="navbarEexample1">

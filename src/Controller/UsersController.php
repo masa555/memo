@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Routing\Router;
 use Cake\Mailer\Email;
 use Cake\Event\Event;
 
@@ -31,6 +32,7 @@ class UsersController extends AppController
         $this->Auth->allow(['index']);
         $this->Auth->allow(['view']);
         $this->Auth->allow(['Passet']);
+         $this->Auth->allow(['reset']);
         
         //記事情報も削除するために追加した
         $this->loadModel('Articles');
@@ -118,61 +120,67 @@ class UsersController extends AppController
      //パスワードリセット    
      public function passet()
     {
-        if($this->request->is('post')){
-              //DB上書きフラグ
-             $save_flag = true;
-            //POSTされたメールアドレスを取得
-             $email = $this->request->getdata('email');
-               
-               //テーブルから、メールアドレスを元にユーザー情報を取り出す
-             $user = $this->Users->find()->where(['Users.email' => $email])->first();
-                        
-             $status = null;
-              //テーブルの値をセット
-             if ($user != null) {
-                $status = $user->status;
-                $username = $user->username;
-            }
-                //メールアドレスがテーブル内に無い場合
-             if ($user == null) {
+        if ($this->request->is('post')) {
+            $query = $this->Users->findByEmail($this->request->getData('email'));
+            $user = $query->first();
+            if (is_null($user)) {
                 $this->Flash->error('メールアドレスを確認して下さい。');
-                $save_flag = false;
-            }
-             //論理削除などのフラグが立っている場合
-             if ($status != null) {
-                $this->Flash->error('メールアドレスを確認して下さい。');
-                $save_flag = false;
-            }
-                
-                
-            if ($save_flag == true) {
-                //アルファベット小文字大文字、数字を配列に入れる
-                $ar_all = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9));
-                 //配列内の値をシャッフルする
-                shuffle($ar_all); 
-                 //8文字のランダムなパスワードを自動生成する
-                $newpass = substr(implode($ar_all), 0, 8); 
-                
-                $user->password = $newpass;
-                   //パスワード再設定メール送信
-                $email = new Email('default');
-                $email->setfrom(['tyutyumasato@gmail.com' => 'masato'])
-                    ->setto($user->email)
-                    ->setsubject('パスワード再設定完了')
-                    ->send($username."\r\nパスワードが再設定されました。新しいパスワードは".$newpass."です。");
-    
-                    //usersテーブル更新
-                $user = $this->Users->patchEntity($user, $this->request->getData());
-                    if ($this->Users->save($user)) {
-                        $this->Flash->success(__('パスワード再設定メールを送信しました。'));
-                         return $this->redirect(['controller'=>'users','action' => 'login']);
-                    }
-                    $this->Flash->error(__('再設定メールを送信出来ませんでした。'));
-            
-                return $this->redirect(['controller'=>'users','action' => 'passet']);
+            } else {
+                $passkey = uniqid();
+                $url = Router::Url(['controller' => 'users', 'action' => 'reset'], true) . '/' . $passkey;
+                $timeout = time() + DAY;
+                 if ($this->Users->updateAll(['passkey' => $passkey, 'timeout' => $timeout], ['id' => $user->id])){
+                    $this->sendResetEmail($url, $user);
+                    $this->redirect(['action' => 'login']);
+                } else {
+                    $this->Flash->error('メールアドレスがタイムアウトしました。');
                 }
-           } 
-    } 
+            }
+        }
+        
+    }
+     private function sendResetEmail($url, $user) {
+      //パスワード再設定メール送信
+        $email = new Email();
+        $email->setTemplate('resetpw');
+        $email->setEmailFormat('both');
+        $email->setFrom(['tyutyumasato@gmail.com' => 'masato']);
+        $email->setTo($user->email);
+        $email->setSubject('パスワード変更');
+        $email->setViewVars(['url' => $url, 'username' => $user->username]);
+        if ($email->send()) {
+            $this->Flash->success(__('パスワード変更メールを送りました。'));
+        } else {
+            $this->Flash->error(__('メールアドレスエラー ') . $email->smtpError);
+        }
+    }
+    public function reset($passkey = null) {
+        if ($passkey) {
+            $query = $this->Users->find('all', ['conditions' => ['passkey' => $passkey, 'timeout >' => time()]]);
+            $user = $query->first();
+            if ($user) {
+                if (!empty($this->request->getData())) {
+                    // Clear passkey and timeout
+                    $this->request->withData("passkey" ,"");
+                    $this->request->withData("timeout" ,"");
+                    $user = $this->Users->patchEntity($user, $this->request->getData());
+                    if ($this->Users->save($user)) {
+                        $this->Flash->set(__('パスワードを変更しました。'));
+                        return $this->redirect(array('action' => 'login'));
+                    } else {
+                        $this->Flash->error(__('パスワード更新が失敗しました。'));
+                    }
+                }
+            } else {
+                $this->Flash->error('パスワードキーが無効または期限切れです。あなたのメールアドレスを確認するか、もう一度お試しください');
+                $this->redirect(['action' => 'passet']);
+            }
+            unset($user->password);
+            $this->set(compact('user'));
+        } else {
+            $this->redirect('/');
+        }
+    }
 
     public function view($id = null)
     {
@@ -190,6 +198,7 @@ class UsersController extends AppController
      */
    public function add()
     {
+         $email = new Email('default');
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -215,10 +224,11 @@ class UsersController extends AppController
               }
             }else
              {
-            $this->Flash->error(__('パスワード又はメールアドレスが間違っています。'));
+            $this->Flash->error(__('パスワードまたはメールアドレスが間違っています。'));
              }
         }
         $this->set(compact('user'));
+        
     }
     /**
      * Edit method

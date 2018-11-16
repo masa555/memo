@@ -1,5 +1,7 @@
 <br>
-<h1>シンプルなメモ帳とても簡単にできます！</h1>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-xs-3.col-xs-offset-2">

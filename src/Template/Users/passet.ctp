@@ -5,9 +5,13 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+
 <div class="container">
      <div class="row">
              <div class="col-xs-3.col-xs-offset-2">
+             <h3>パスワード変更</h3>         
               <!--container--bootstrap-->    
 <?php echo $this->Form->create('BoostCake', array(
 	'inputDefaults' => array(
@@ -20,7 +24,6 @@
 	),
 	'class' => 'well form-horizontal'
     )); ?> 
-    <h3>パスワード変更</h3>
     <p><strong>入力されたメールアドレスに、再設定メールを送信します。<br>
     ユーザー登録されていない場合は送信出来ません。また、存在しないメールアドレスには正しく送信出来ませんので、ご了承下さい。</strong></p>
     <?= $this->Form->create() ?>

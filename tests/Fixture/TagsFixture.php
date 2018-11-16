@@ -16,6 +16,7 @@ class TagsFixture extends TestFixture
      * @var array
      */
     // @codingStandardsIgnoreStart
+    
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'title' => ['type' => 'string', 'length' => 191, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -42,7 +43,19 @@ class TagsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'title' => 'Lorem ipsum dolor sit amet',
+                'title' => 'PHP',
+                'created' => '2018-08-11 14:53:13',
+                'modified' => '2018-08-11 14:53:13'
+            ],
+            [
+                'id' => 2,
+                'title' => 'CakePHP',
+                'created' => '2018-08-11 14:53:13',
+                'modified' => '2018-08-11 14:53:13'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Bakery',
                 'created' => '2018-08-11 14:53:13',
                 'modified' => '2018-08-11 14:53:13'
             ],

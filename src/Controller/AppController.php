@@ -47,7 +47,7 @@ class AppController extends Controller
         $this->loadComponent('Cookie');
         $this->loadComponent('Auth', [
             'authorize' => 'Controller',
-             'authError' => '不正なログインです。',
+            'authError' => '',
             'authenticate' => [
                 'Form' => [
                     'fields' => [

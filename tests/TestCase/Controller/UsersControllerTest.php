@@ -17,57 +17,61 @@ class UsersControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.users',
-        'app.articles'
+        'app.articles',
     ];
 
     /**
-     * Test index method
+     * ログインページが表示される
      *
      * @return void
      */
-    public function testIndexBeforeLogin()
+    public function testLogin()
     {
-        $this->markTestIncomplete('/users/index');
-        $this->assertRedirect(['controller'=>'Users','action'=>'index']);
+        $this->get('/users/login');
+        $this->assertResponseOk();
+        $this->assertResponseContains('ログイン');
     }
 
     /**
-     * Test view method
+     * ログイン失敗
      *
      * @return void
      */
-    public function testView()
+    public function testLoginFailed()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->post('/users/login', [
+            'email' => 'tyutyumasato@gmail.com',
+            'password' => 'test',
+        ]);
+        $this->assertResponseOk();
+        $this->assertResponseContains('ユーザー名またはパスワードが不正です。');
     }
 
     /**
-     * Test add method
+     * ログイン成功
      *
      * @return void
      */
-    public function testAdd()
+    public function testLoginSucceed()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->post('/users/login?redirect=%2Farticles%2Fadd', [
+            'email' => 'tyutyumasato@gmail.com',
+            'password' => 'test',
+        ]);
+        $this->assertRedirect('/articles/add');
+        $this->assertSession(2, 'Auth.User.id');
     }
 
     /**
-     * Test edit method
+     * ログアウト
      *
      * @return void
      */
-    public function testEdit()
+      public function testLogout()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test delete method
-     *
-     * @return void
-     */
-    public function testDelete()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->session(['Auth.User.id' => 2]);
+        $this->get('/users/logout');
+        $this->assertSession([], 'Auth');
+        $this->assertRedirect('/users/login');
     }
 }
