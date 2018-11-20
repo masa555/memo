@@ -144,7 +144,7 @@ class UsersController extends AppController
         $email = new Email();
         $email->setTemplate('resetpw');
         $email->setEmailFormat('both');
-        $email->setFrom(['tyutyumasato@gmail.com' => 'masato']);
+        $email->setFrom(['simplememo.001@gmail.com' => 'シンプルメモ帳']);
         $email->setTo($user->email);
         $email->setSubject('パスワード変更');
         $email->setViewVars(['url' => $url, 'username' => $user->username]);

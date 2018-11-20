@@ -6,7 +6,7 @@
      <div class="row">
     <div class='font'>
     <div class='border'>
-    <h3>シンプルメモの使い方</h3>
+    <h3>シンプルメモ帳の使い方</h3>
     <li><strong>シンプルな機能</strong></li>
     <p>誰でも簡単に作成することができます。</p>
     <hr>

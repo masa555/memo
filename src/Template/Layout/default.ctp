@@ -37,7 +37,7 @@ $cakeDescription = 'シンプルメモ'
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			    <h3 class="top"><?= $this->Html->link(__('シンプルメモ'), ['controller' => 'articles', 'action' => 'index']) ?></h3>
+			    <h3 class="top"><?= $this->Html->link(__('シンプルメモ帳'), ['controller' => 'articles', 'action' => 'index']) ?></h3>
 		</div>
 		
 		<div class="collapse navbar-collapse" id="navbarEexample1">
