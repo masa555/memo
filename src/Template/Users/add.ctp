@@ -19,7 +19,7 @@
     <!--ユーザー画面-->
     <?= $this->Form->create($user) ?>
         <?php
-            echo $this->Form->control('email',array('placeholder' => 'メールアドレス（認証用ID）',
+            echo$this->Form->control('email',array('placeholder' => 'メールアドレス（認証用ID）',
             'class'=>'input-lg','label'=>'メールアドレス'
             ));
             echo $this->Form->control('password',array('placeholder' => 'パスワード',

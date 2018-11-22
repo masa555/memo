@@ -173,7 +173,6 @@ ServerRequest::addDetector('tablet', function ($request) {
 
     return $detector->isTablet();
 });
-
 /*
  * Enable immutable time objects in the ORM.
  *
