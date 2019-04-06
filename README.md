@@ -20,4 +20,6 @@ https://notesapplication.site/
 # 使用している技術
 CakePHP3
 Bootstrap3
+# インフラ
+heroku
 
