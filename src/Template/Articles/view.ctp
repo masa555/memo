@@ -14,10 +14,10 @@
 <hr>
 <div class="container">
  <div class="title">
-<h3><?php echo $this->Markdown->parse($md); ?></h3>
+<h3><?php echo $article->title ?></h3>
     <h3>本文</h3>
     <hr size="100">
-    <h2><?php echo $this->Markdown->parse($md2); ?></h2>  
+    <h2><?php echo $article->body ?></h2>  
  </div>
 </div>
 <?php echo $this->Html->css('view')?>

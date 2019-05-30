@@ -7,8 +7,7 @@
     <?= $this->Form->control('title',array('label'=>'タイトル',
         'class'=>'input-lg','label'=>'タイトル'
         ));?>
-   
-      <?= $this->Form->control('body',array('label'=>'本文',
+      <?= $this->Ck->input('body',array('label'=>'本文',
         'class'=>'input-lg','label'=>'本文'
         ));?>
         <div class="form-group">

@@ -55,6 +55,7 @@ class ArticlesController extends AppController
     $this->set(compact('md2'));
     
   }
+  public $helpers = ['CkEditor.Ck'];
   public function add()
   {  
       $article = $this->Articles->newEntity();

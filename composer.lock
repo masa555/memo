@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "11912a358f37698e48e525f805a2e139",
+    "content-hash": "24c09198ceceb2d47bcb98d98f233b8d",
     "packages": [
         {
             "name": "aura/intl",
@@ -51,6 +51,37 @@
                 "localization"
             ],
             "time": "2017-01-20T05:00:11+00:00"
+        },
+        {
+            "name": "cakecoded/ckeditor",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CakeCoded/CkEditor.git",
+                "reference": "dc0cad414e3871177c9db8da9c8f030611094bbe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CakeCoded/CkEditor/zipball/dc0cad414e3871177c9db8da9c8f030611094bbe",
+                "reference": "dc0cad414e3871177c9db8da9c8f030611094bbe",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": ">=3.3.2 <4.0.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "CkEditor\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "CkEditor plugin for CakePHP 3.x",
+            "time": "2016-12-20T13:23:23+00:00"
         },
         {
             "name": "cakephp/cakephp",
@@ -2931,6 +2962,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2018-08-09T05:50:03+00:00"
         },
         {
