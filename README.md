@@ -17,6 +17,11 @@ https://notesapplication.site/
 記事編集機能<br>
 記事削除機能<br>
 マークダウン機能<br>
+
+#追加機能
+CKエディタ
+文字拡大縮小機能
+
 # 使用している技術
 CakePHP3
 Bootstrap3
