@@ -1,0 +1,24 @@
+.container-fluid{
+    margin:100px;
+    color:#fff;
+}
+h1{
+    color: white;
+}
+
+body{
+    background-color: #426ef4;
+}
+.title{
+    margin:0 auto;
+    padding:30px;
+}
+.subtitle{
+    color:white;
+    margin:0 auto;
+    font-size: 20px;
+    padding:10px;
+}
+.comsept{
+    font-size: 30px;
+}
