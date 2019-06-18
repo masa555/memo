@@ -1,6 +1,11 @@
 # シンプルなメモ帳
 
 ## デモサイト
+メールアドレス
+test@gmail.com
+パスワード
+root
+
 https://notesapplication.site/tops
 
 # 概要
