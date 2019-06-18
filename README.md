@@ -2,7 +2,7 @@
 
 ## デモサイト
 メールアドレス
-test@gmail.com
+test@gmail.com<br>
 パスワード
 root
 
