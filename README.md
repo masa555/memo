@@ -1,7 +1,7 @@
 # シンプルなメモ帳
 
 ## デモサイト
-https://notesapplication.site/
+https://notesapplication.site/tops
 
 # 概要
  作成しようと思った理由としてあまり自分の理想とするブラウザ形式のメモ帳アプリが少なかったからです。
